@@ -12,13 +12,13 @@ pipeline {
                 stage('run-api-tests-dev'){
                     steps{
                         sh "docker login"
-                        sh "docker run --network=host --rm --name api_dev_tests --entrypoint=cucumber mtararujs/ubuntu_ruby_executor:latest PLATFORM=DEV --tags=${params.TAG}"
+                        sh "docker run --network=host --rm --name api_dev_tests --entrypoint=cucumber imiglane/ubuntu_ruby_executor:latest PLATFORM=DEV --tags=${params.TAG}"
                     }
                 }
                 stage('run-api-tests-prd'){
                     steps{
                         sh "docker login"
-                        sh "docker run --network=host --rm --name api_prd_tests --entrypoint=cucumber mtararujs/ubuntu_ruby_executor:latest PLATFORM=PRD --tags=${params.TAG}"
+                        sh "docker run --network=host --rm --name api_prd_tests --entrypoint=cucumber imgilane/ubuntu_ruby_executor:latest PLATFORM=PRD --tags=${params.TAG}"
                     }
                 }
             }
